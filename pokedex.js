@@ -1,4 +1,5 @@
-const pokedexOl = document.querySelector(`#pokedex`);
+
+let pokedexOl = document.querySelector(`#pokedex`);
 
 async function collectPokemon(numOfPokemon) {
     try {
@@ -25,4 +26,3 @@ async function collectPokemon(numOfPokemon) {
 }
 
 collectPokemon(1);
-
