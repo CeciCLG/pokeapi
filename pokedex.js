@@ -78,3 +78,6 @@ async function collectPokemon(numOfPokemon) {
 }
 
 
+for (let i = 0; i <= 150; i++) {
+    collectPokemon(i);
+}
