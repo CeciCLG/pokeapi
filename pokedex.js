@@ -28,7 +28,19 @@ function doomPokedex(pokemonObject) {
 
     //añadimos el tipo de pokemonObject 
     let type = document.createElement('p');
-    let pokeType = document.createTextNode(`Tipo: ${pokemonObject.type[0]} y ${pokemonObject.type[1]}`);
+
+    for (let i = 0; i < pokemonObject.type.length; i++) {
+        let typeText;
+        if (i === 0) {
+            typeText = `Tipo: ${pokemonObject.type[i]}`;
+        } else if (0 < i < (pokemonObject.type.length - 1)) {
+            typeText += `, ${pokemonObject.type[i]}`;
+        } else if (0 < i === (pokemonObject.type.length - 1)) {
+            typeText += ` y ${pokemonObject.type[i]}`;
+        }
+    }
+
+    let pokeType = document.createTextNode(typeText);
     type.appendChild(pokeType);
     listItem.appendChild(type);
 }
