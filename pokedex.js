@@ -28,21 +28,26 @@ function doomPokedex(pokemonObject) {
 
     //añadimos el tipo de pokemonObject 
     let type = document.createElement('p');
-
+    let typeText;
     for (let i = 0; i < pokemonObject.type.length; i++) {
-        let typeText;
+
         if (i === 0) {
             typeText = `Tipo: ${pokemonObject.type[i]}`;
+
         } else if (0 < i < (pokemonObject.type.length - 1)) {
             typeText += `, ${pokemonObject.type[i]}`;
-        } else if (0 < i === (pokemonObject.type.length - 1)) {
-            typeText += ` y ${pokemonObject.type[i]}`;
+
+        } else if (i => (pokemonObject.type.length - 1)) {
+            typeText = `${typeText} y ${pokemonObject.type[i]}`;
+
         }
     }
 
     let pokeType = document.createTextNode(typeText);
     type.appendChild(pokeType);
     listItem.appendChild(type);
+
+
 }
 
 async function collectPokemon(numOfPokemon) {
@@ -50,9 +55,9 @@ async function collectPokemon(numOfPokemon) {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${numOfPokemon}/`);
         const dataPokemon = await response.json();
 
-        //console.log(dataPokemon);
+
         const arrayDataPokemon = [dataPokemon];
-        //console.log(arrayDataPokemon);
+
 
         const pokemon = arrayDataPokemon.map((result) => {
             return {
@@ -64,11 +69,12 @@ async function collectPokemon(numOfPokemon) {
                 }),
             }
         })
-        //console.log(pokemon[0]);
+
         doomPokedex(pokemon[0]);
         return pokemon[0];
     } catch (error) {
+        alert = error.name;
     }
 }
 
-collectPokemon(4);
+
