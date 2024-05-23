@@ -1,26 +1,29 @@
 function doomPokedex(pokemonObject) {
     //seleccionamos la lista
     let pokedexOl = document.querySelector(`#pokedex`);
+
     //creamos el elemento de lista
     let listItem = document.createElement('li');
     listItem.id = pokemonObject.id;
+    listItem.className = "card";
     pokedexOl.appendChild(listItem);
 
     //Creamos el comtenedor de las imagen
     let bloqueImg = document.createElement("figure");
-    //creamos la imagen
     let img = document.createElement("img");
-    //le añadimos atributos
     img.src = pokemonObject.image;
     img.alt = pokemonObject.name;
+    img.className = "card-image";
+
     //añadimos la imagen al contenedor
     bloqueImg.appendChild(img);
-    //crear la leyenda de la image
+
+    //crear la leyenda de la image (el nombre del pokemon)
     let caption = document.createElement('figcaption');
-    //le añadimos contenido
+    caption.className = "card-title";
     let captionText = document.createTextNode(`${pokemonObject.name}`);
-    //añadimos el nodo de texto a la descripcion
     caption.appendChild(captionText);
+
     //lo añadimos al contenedor imagen
     bloqueImg.appendChild(caption);
     //añadimos el contenedor figure
@@ -44,6 +47,7 @@ function doomPokedex(pokemonObject) {
     }
 
     let pokeType = document.createTextNode(typeText);
+    pokeType.className = "card-subtitle";
     type.appendChild(pokeType);
     listItem.appendChild(type);
 
